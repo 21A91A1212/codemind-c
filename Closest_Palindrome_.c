@@ -1,38 +1,47 @@
-#include<stdio.h>
+#include<bits/stdc++.h>
+bool palindrome(int n)
+{
+    int r,sum=0,temp;
+    temp=n;
+    while(n>0)
+    {
+        r=n%10;
+        sum=sum*10+r;
+        n=n/10;
+    }
+    if(sum==temp)
+      return true;
+    else
+       return false;
+}
 int main()
 {
-    int n,i,r,sum,p,a,b;
-    scanf("%d",&n);
-    for(i=n-1;i>0;i--)
-    {  p=i,sum=0;
-        while(p)
-        {
-            r=p%10;
-            sum=(sum*10)+r;
-            p=p/10;
-        }
-        if(sum==i)
-        {
-        a=i;
-        break;
-        }
+    int n,d1,d2,i;
+    std::cin>>n;
+    for(i=n+1;;i++)
+    {
+        bool found=palindrome(i);
+        if(found)
+          {
+              d1=i-n;
+              break;
+          }
     }
-    for(i=n+1; ;i++)
-    {  p=i,sum=0;
-        while(p)
-        {
-            r=p%10;
-            sum=(sum*10)+r;
-            p=p/10;
-        }
-        if(sum==i)
-        {
-        b=i;
-        break;
-        }
+    for(i=n-1;;i--)
+    {
+        bool found=palindrome(i);
+        if(found)
+         {
+             d2=n-i;
+             break;
+         }
     }
-    if(n-a == b-n)
-    printf("%d %d",a,b);
+    if(d1==d2)
+      std::cout<<n-d1<<" "<<n+d2;
+    else if(d1>d2)
+      std::cout<<n-d2;
     else
-    printf("%d",a);
+      std::cout<<n+d1;
+
+    return 0;
 }
