@@ -30,7 +30,7 @@ int main()
             count++;
         }
     }
-     if (count==0)
+    if (count==0)
     {
         printf("%d",-1);
     }
