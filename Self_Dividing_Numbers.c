@@ -1,33 +1,25 @@
 #include<stdio.h>
 int main()
 {
-    int n,m,i,d,t,s=0;
-    scanf("%d%d",&n,&m);
-    for(i=n;i<=m;i++)
+    int m,i,d=0,n,s=0,t,c=0;
+    scanf("%d",&m);
+    scanf("%d",&n);
+    for(i=m;i<=n;i++)
     {
-        int c=0,s=0;;
+		c=0;
         t=i;
         while(t)
         {
-            d=t%10;
-            t=t/10;
-            s++;
-            if(d==0)
-            {
-                break;
-            }
-            else
-            {
-                if(i%d==0)
-                {
-                    c++;
-                }
-            }
-        }
-        //printf("%d ",s);
-        if(s==c)
-        {
-            printf("%d ",i);
-        }
+        	d=t%10;
+        	if((d==0)||(i%d!=0))
+        	{
+        		c++;
+			}
+			t=t/10;
+		}
+		if(c==0)
+		{
+			printf("%d ",i);
+		}
     }
 }
