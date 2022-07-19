@@ -1,33 +1,31 @@
 #include<stdio.h>
 int main()
 {
-    int a;
-    scanf("%d",&a);
-    int arr[a],i;
-    for (i=0; i<a; i++)
+    int i,n,j,a,b,s[100],m=0,c=0;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
     {
-        scanf("%d",&arr[i]);
+        scanf("%d",&s[i]);
     }
-    int x,y;
-    scanf("%d%d",&x,&y);
-    int max=0;
-    for (i=0; i<a; i++)
+    scanf("%d%d",&a,&b);
+    for(i=0;i<n;i++)
     {
-        if (arr[i]<x || arr[i]>y)
+        if(s[i]<a || s[i]>b)
         {
-            if (arr[i]>max)
+            if(m<s[i])
             {
-                max=arr[i];
+                m=s[i];
+                c++;
             }
         }
     }
-    if (max==0)
+    
+    if(c==0)
     {
         printf("-1");
     }
     else
     {
-        printf("%d",max);
+    printf("%d",m);
     }
-    return 0;
 }
